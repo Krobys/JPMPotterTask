@@ -20,7 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel
 import exomind.online.jpmpottertask.presentation.characters.model.Effect
@@ -43,8 +43,8 @@ fun CharactersListScreen(
     viewModel: CharactersListViewModel = hiltViewModel<CharactersListViewModel>(),
     navigateCharacter: ((id: String) -> Unit),
 ) {
-    val state = viewModel.characters.collectAsState()
-    val query = viewModel.query.collectAsState()
+    val state = viewModel.characters.collectAsStateWithLifecycle()
+    val query = viewModel.query.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
 
     LaunchedEffect(Unit) {

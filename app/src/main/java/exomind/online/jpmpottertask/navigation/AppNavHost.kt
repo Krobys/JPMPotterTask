@@ -28,7 +28,12 @@ fun AppNavHost() {
 
         composable<CharacterDetails> { backStackEntry ->
             val id: String = backStackEntry.toRoute<CharacterDetails>().id
-            CharacterDetailsScreen(id)
+            CharacterDetailsScreen(
+                characterId = id,
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

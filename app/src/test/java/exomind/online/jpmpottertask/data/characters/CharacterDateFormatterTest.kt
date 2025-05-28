@@ -1,5 +1,6 @@
 package exomind.online.jpmpottertask.data.characters
 
+import exomind.online.jpmpottertask.data.characters.mappers.CharacterDateFormatter
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Before

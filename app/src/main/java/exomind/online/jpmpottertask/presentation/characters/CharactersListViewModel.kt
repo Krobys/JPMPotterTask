@@ -1,12 +1,14 @@
 package exomind.online.jpmpottertask.presentation.characters
 
-import androidx.compose.runtime.Stable
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import exomind.online.jpmpottertask.domain.Character
 import exomind.online.jpmpottertask.domain.characters.GetCharactersUseCase
+import exomind.online.jpmpottertask.domain.models.Character
+import exomind.online.jpmpottertask.presentation.characters.model.Effect
+import exomind.online.jpmpottertask.presentation.characters.model.Event
+import exomind.online.jpmpottertask.presentation.characters.model.UIState
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -90,22 +92,4 @@ class CharactersListViewModel @Inject constructor(
         }
     }
 
-    sealed interface Effect {
-        data class NavigateToCharacterDetails(val character: Character) : Effect
-        data object ScrollToTop : Effect
-    }
-
-    sealed interface Event {
-        class QueryCharacters(val query: String) : Event
-        object RetryCharacters: Event
-        object ScrollToTop: Event
-        class NavigateCharacterDetails(val character: Character) : Event
-    }
-
-    sealed interface UIState {
-        object Loading : UIState
-        @Stable
-        data class Success(val characters: List<Character>) : UIState
-        data class Error(val message: String) : UIState
-    }
 }

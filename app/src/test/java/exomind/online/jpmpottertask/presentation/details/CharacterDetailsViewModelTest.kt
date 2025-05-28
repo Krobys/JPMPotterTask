@@ -1,7 +1,7 @@
 package exomind.online.jpmpottertask.presentation.details
 
 
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.details.GetCharacterUseCase
 import exomind.online.jpmpottertask.presentation.details.CharacterDetailsViewModel.State
 import io.mockk.MockKAnnotations

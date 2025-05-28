@@ -1,6 +1,6 @@
 package exomind.online.jpmpottertask.domain.details
 
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.CharactersRepository
 import javax.inject.Inject
 

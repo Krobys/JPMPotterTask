@@ -5,10 +5,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import exomind.online.jpmpottertask.navigation.AppScreens.CharacterDetails
-import exomind.online.jpmpottertask.navigation.AppScreens.CharacterList
-import exomind.online.jpmpottertask.presentation.characters.CharactersListScreen
-import exomind.online.jpmpottertask.presentation.details.CharacterDetailsScreen
+import exomind.online.jpmpottertask.navigation.AppScreen.CharacterDetails
+import exomind.online.jpmpottertask.navigation.AppScreen.CharacterList
+import exomind.online.jpmpottertask.presentation.characters.ui.CharactersListScreen
+import exomind.online.jpmpottertask.presentation.details.ui.CharacterDetailsScreen
 
 @Composable
 fun AppNavHost() {

@@ -1,8 +1,9 @@
 package exomind.online.jpmpottertask.data.characters
 
-import exomind.online.jpmpottertask.data.network.CharacterDto
-import exomind.online.jpmpottertask.data.network.CharactersApi
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.data.characters.mappers.CharacterMapper
+import exomind.online.jpmpottertask.data.characters.network.CharacterDto
+import exomind.online.jpmpottertask.data.characters.network.CharactersApi
+import exomind.online.jpmpottertask.domain.models.Character
 import io.mockk.coEvery
 import io.mockk.coJustRun
 import io.mockk.coVerify

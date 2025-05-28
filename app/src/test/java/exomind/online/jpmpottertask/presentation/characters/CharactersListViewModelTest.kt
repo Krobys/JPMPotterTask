@@ -1,7 +1,7 @@
 package exomind.online.jpmpottertask.presentation.characters
 
 import androidx.lifecycle.SavedStateHandle
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.characters.GetCharactersUseCase
 import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel.UIState
 import io.mockk.MockKAnnotations

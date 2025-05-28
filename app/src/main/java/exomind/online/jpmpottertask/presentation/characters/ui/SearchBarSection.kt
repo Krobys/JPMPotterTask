@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.characters
+package exomind.online.jpmpottertask.presentation.characters.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

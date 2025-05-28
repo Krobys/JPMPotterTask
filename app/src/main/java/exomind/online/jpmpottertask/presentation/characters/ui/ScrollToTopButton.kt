@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.characters
+package exomind.online.jpmpottertask.presentation.characters.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowUp

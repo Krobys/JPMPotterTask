@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.details
+package exomind.online.jpmpottertask.presentation.details.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -20,7 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import exomind.online.jpmpottertask.R
-import exomind.online.jpmpottertask.presentation.characters.HouseChip
+import exomind.online.jpmpottertask.presentation.characters.ui.HouseChip
 
 @Composable
 fun BannerSection(

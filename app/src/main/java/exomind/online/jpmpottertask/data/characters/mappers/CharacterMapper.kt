@@ -1,7 +1,9 @@
-package exomind.online.jpmpottertask.data.characters
+package exomind.online.jpmpottertask.data.characters.mappers
 
-import exomind.online.jpmpottertask.data.network.CharacterDto
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.data.characters.mappers.CharacterDateFormatter
+import exomind.online.jpmpottertask.data.characters.local.CharacterEntity
+import exomind.online.jpmpottertask.data.characters.network.CharacterDto
+import exomind.online.jpmpottertask.domain.models.Character
 import javax.inject.Inject
 
 class CharacterMapper @Inject constructor(

@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.domain
+package exomind.online.jpmpottertask.domain.models
 
 data class Character(
     val id: String,

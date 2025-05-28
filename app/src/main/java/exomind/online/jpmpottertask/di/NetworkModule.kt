@@ -5,8 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import exomind.online.jpmpottertask.BuildConfig
-import exomind.online.jpmpottertask.data.network.CharactersApi
-import okhttp3.MediaType.Companion.toMediaType
+import exomind.online.jpmpottertask.data.characters.network.CharactersApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named

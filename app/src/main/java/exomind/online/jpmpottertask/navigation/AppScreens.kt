@@ -1,16 +1,13 @@
 package exomind.online.jpmpottertask.navigation
 
-import android.R.attr.type
-import androidx.navigation.NavType
-import androidx.navigation.navArgument
 import kotlinx.serialization.Serializable
 
-sealed interface AppScreens {
+sealed interface AppScreen {
 
     @Serializable
-    object CharacterList : AppScreens
+    object CharacterList : AppScreen
 
     @Serializable
-    data class CharacterDetails(val id: String) : AppScreens
+    data class CharacterDetails(val id: String) : AppScreen
 
 }

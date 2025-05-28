@@ -7,7 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import exomind.online.jpmpottertask.data.characters.CharactersDao
+import exomind.online.jpmpottertask.data.characters.local.CharactersDao
 import exomind.online.jpmpottertask.data.database.AppDatabase
 import javax.inject.Singleton
 import kotlin.jvm.java

@@ -2,8 +2,8 @@ package exomind.online.jpmpottertask.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import exomind.online.jpmpottertask.data.characters.CharacterEntity
-import exomind.online.jpmpottertask.data.characters.CharactersDao
+import exomind.online.jpmpottertask.data.characters.local.CharacterEntity
+import exomind.online.jpmpottertask.data.characters.local.CharactersDao
 
 @Database(
     entities = [

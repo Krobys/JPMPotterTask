@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.data.characters
+package exomind.online.jpmpottertask.data.characters.mappers
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -26,4 +26,3 @@ class CharacterDateFormatter @Inject constructor() {
         }
     }
 }
-

@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.characters
+package exomind.online.jpmpottertask.presentation.characters.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.ui.theme.HouseColors
 import exomind.online.jpmpottertask.ui.theme.LocalHouseColors
 

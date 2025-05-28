@@ -1,6 +1,5 @@
-package exomind.online.jpmpottertask.presentation.characters
+package exomind.online.jpmpottertask.presentation.characters.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,20 +25,18 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import exomind.online.jpmpottertask.domain.Character
-import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel.Effect
-import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel.Event
-import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel.UIState
+import exomind.online.jpmpottertask.domain.models.Character
+import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel
+import exomind.online.jpmpottertask.presentation.characters.model.Effect
+import exomind.online.jpmpottertask.presentation.characters.model.Event
+import exomind.online.jpmpottertask.presentation.characters.model.UIState
 import exomind.online.jpmpottertask.ui.theme.AppTheme
-import kotlinx.coroutines.launch
 
 @Composable
 fun CharactersListScreen(

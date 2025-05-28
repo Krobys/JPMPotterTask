@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.data.characters
+package exomind.online.jpmpottertask.data.characters.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

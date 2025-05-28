@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.details
+package exomind.online.jpmpottertask.presentation.details.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.data.network
+package exomind.online.jpmpottertask.data.characters.network
 
 import retrofit2.http.GET
 

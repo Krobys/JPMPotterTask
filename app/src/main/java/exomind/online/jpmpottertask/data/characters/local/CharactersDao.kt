@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.data.characters
+package exomind.online.jpmpottertask.data.characters.local
 
 import androidx.room.Dao
 import androidx.room.Insert

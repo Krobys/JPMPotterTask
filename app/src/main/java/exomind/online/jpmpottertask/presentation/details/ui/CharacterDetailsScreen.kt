@@ -1,4 +1,4 @@
-package exomind.online.jpmpottertask.presentation.details
+package exomind.online.jpmpottertask.presentation.details.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.models.Character
+import exomind.online.jpmpottertask.presentation.details.CharacterDetailsViewModel
+import exomind.online.jpmpottertask.presentation.details.model.Effect
+import exomind.online.jpmpottertask.presentation.details.model.Event
+import exomind.online.jpmpottertask.presentation.details.model.UIState
 import exomind.online.jpmpottertask.ui.theme.HouseColors
 import exomind.online.jpmpottertask.ui.theme.LocalHouseColors
 
@@ -39,7 +43,7 @@ fun CharacterDetailsScreen(
     LaunchedEffect(Unit) {
         viewModel.effects.collect { effect ->
             when (effect) {
-                is CharacterDetailsViewModel.Effect.NavigateBack -> onNavigateBack()
+                is Effect.NavigateBack -> onNavigateBack()
             }
         }
     }
@@ -55,16 +59,16 @@ fun CharacterDetailsScreen(
 @Composable
 private fun CharacterDetailsUI(
     modifier: Modifier = Modifier,
-    state: CharacterDetailsViewModel.State,
-    onEvent: (CharacterDetailsViewModel.Event) -> Unit,
+    state: UIState,
+    onEvent: (Event) -> Unit,
 ) {
     when (state) {
-        CharacterDetailsViewModel.State.Loading -> LoadingContent(modifier)
-        is CharacterDetailsViewModel.State.Error -> ErrorContent(state.message, modifier)
-        is CharacterDetailsViewModel.State.Success -> SuccessContent(
+        UIState.Loading -> LoadingContent(modifier)
+        is UIState.Error -> ErrorContent(state.message, modifier)
+        is UIState.Success -> SuccessContent(
             modifier = modifier,
             character = state.character,
-            onBack = { onEvent(CharacterDetailsViewModel.Event.NavigateBack) },
+            onBack = { onEvent(Event.NavigateBack) },
         )
     }
 }

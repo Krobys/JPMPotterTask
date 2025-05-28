@@ -1,9 +1,13 @@
 package exomind.online.jpmpottertask.data.characters
 
-import exomind.online.jpmpottertask.data.network.CharactersApi
-import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.data.characters.local.CharacterEntity
+import exomind.online.jpmpottertask.data.characters.local.CharactersDao
+import exomind.online.jpmpottertask.data.characters.mappers.CharacterMapper
+import exomind.online.jpmpottertask.data.characters.network.CharactersApi
+import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.CharactersRepository
 import javax.inject.Inject
+import kotlin.collections.map
 
 class CharactersRepositoryImpl @Inject constructor(
     private val api: CharactersApi,

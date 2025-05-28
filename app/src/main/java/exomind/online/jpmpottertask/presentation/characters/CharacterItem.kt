@@ -69,7 +69,8 @@ fun CharacterItemPreview() {
                 actorName = "Daniel Radcliffe",
                 imageUrl = "",
                 species = "Wizard",
-                house = "Gryffindor"
+                house = "Gryffindor",
+                alive = true
             ),
             onClick = {}
         )

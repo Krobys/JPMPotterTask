@@ -64,6 +64,7 @@ fun CharacterItemPreview() {
     CompositionLocalProvider(LocalHouseColors provides HouseColors()) {
         CharacterItem(
             character = Character(
+                id = "",
                 characterName = "Harry Potter",
                 actorName = "Daniel Radcliffe",
                 imageUrl = "",

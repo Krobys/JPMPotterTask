@@ -7,6 +7,7 @@ import javax.inject.Inject
 class CharacterMapper @Inject constructor() {
     fun fromDto(dto: CharacterDto): CharacterEntity =
         CharacterEntity(
+            id = dto.id,
             characterName = dto.name,
             imageUrl = dto.image,
             actorName = dto.actor,
@@ -17,6 +18,7 @@ class CharacterMapper @Inject constructor() {
 
     fun toDomain(entity: CharacterEntity): Character =
         Character(
+            id = entity.id,
             characterName = entity.characterName,
             actorName = entity.actorName,
             imageUrl = entity.imageUrl,

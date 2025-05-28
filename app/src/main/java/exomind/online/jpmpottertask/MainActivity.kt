@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
-import exomind.online.jpmpottertask.presentation.characters.CharactersListScreen
+import exomind.online.jpmpottertask.navigation.AppNavHost
 import exomind.online.jpmpottertask.ui.theme.AppTheme
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                CharactersListScreen()
+                AppNavHost()
             }
         }
     }

@@ -1,6 +1,7 @@
 package exomind.online.jpmpottertask.domain
 
 data class Character(
+    val id: String,
     val characterName: String,
     val actorName: String,
     val imageUrl: String,

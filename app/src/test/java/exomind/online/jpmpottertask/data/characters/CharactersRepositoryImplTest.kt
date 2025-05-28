@@ -7,8 +7,8 @@ import io.mockk.coEvery
 import io.mockk.coJustRun
 import io.mockk.coVerify
 import io.mockk.mockk
+import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 
@@ -62,6 +62,29 @@ class CharactersRepositoryImplTest {
         assertEquals(listOf(domain1, domain2), result)
         coVerify(exactly = 0) { api.fetchCharacters() }
         coVerify(exactly = 0) { dao.insertCharacters(any()) }
+    }
+
+    @Test
+    fun `fetches single character from cache`() = runTest {
+        // GIVEN
+        val id = "1"
+        coEvery { dao.getCharacter(id) } returns entity1
+
+        // WHEN
+        val result = repository.getCharacter(id)
+
+        // THEN
+        assertEquals(result, domain1)
+    }
+
+    @Test(expected = Exception::class)
+    fun `fetch single character thorws exception when no character`() = runTest {
+        // GIVEN
+        val id = "1"
+        coEvery { dao.getCharacter(id) } throws Exception()
+
+        // WHEN
+        repository.getCharacter(id)
     }
 
     @Test

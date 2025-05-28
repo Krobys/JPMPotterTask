@@ -11,5 +11,6 @@ data class CharacterEntity(
     val imageUrl: String,
     val species: String,
     val house: String,
-    val dateOfBirth: String?
+    val dateOfBirth: String?,
+    val alive: Boolean
 )

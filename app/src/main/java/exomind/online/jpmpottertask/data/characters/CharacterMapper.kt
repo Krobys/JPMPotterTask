@@ -4,7 +4,9 @@ import exomind.online.jpmpottertask.data.network.CharacterDto
 import exomind.online.jpmpottertask.domain.Character
 import javax.inject.Inject
 
-class CharacterMapper @Inject constructor() {
+class CharacterMapper @Inject constructor(
+    private val characterDateFormatter: CharacterDateFormatter,
+) {
     fun fromDto(dto: CharacterDto): CharacterEntity =
         CharacterEntity(
             id = dto.id,
@@ -13,7 +15,8 @@ class CharacterMapper @Inject constructor() {
             actorName = dto.actor,
             species = dto.species,
             house = dto.house.ifBlank { "Unknown" },
-            dateOfBirth = dto.dateOfBirth
+            dateOfBirth = dto.dateOfBirth,
+            alive = dto.alive
         )
 
     fun toDomain(entity: CharacterEntity): Character =
@@ -24,6 +27,7 @@ class CharacterMapper @Inject constructor() {
             imageUrl = entity.imageUrl,
             species = entity.species,
             house = entity.house.ifBlank { "Unknown" },
-            dateOfBirth = entity.dateOfBirth
+            dateOfBirth = characterDateFormatter.format(entity.dateOfBirth),
+            alive = entity.alive
         )
 }

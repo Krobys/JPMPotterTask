@@ -24,6 +24,11 @@ class CharactersRepositoryImpl @Inject constructor(
             .map(mapper::toDomain)
     }
 
+    override suspend fun getCharacter(id: String): Character {
+        val entity = dao.getCharacter(id)
+        return mapper.toDomain(entity)
+    }
+
     private fun List<CharacterEntity>.filterBy(query: String?): List<CharacterEntity> =
         if (query.isNullOrBlank()) this
         else filter {

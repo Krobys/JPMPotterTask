@@ -1,0 +1,33 @@
+package exomind.online.jpmpottertask.data.characters
+
+import exomind.online.jpmpottertask.data.network.CharactersApi
+import exomind.online.jpmpottertask.domain.Character
+import exomind.online.jpmpottertask.domain.CharactersRepository
+import javax.inject.Inject
+
+class CharactersRepositoryImpl @Inject constructor(
+    private val api: CharactersApi,
+    private val dao: CharactersDao,
+    private val mapper: CharacterMapper,
+) : CharactersRepository {
+
+    override suspend fun getCharacters(query: String?): List<Character> {
+        val cached = dao.getCharacters()
+        if (cached.isEmpty()) {
+            val entities = api.fetchCharacters()
+                .map(mapper::fromDto)
+            dao.insertCharacters(entities)
+        }
+
+        return dao.getCharacters()
+            .filterBy(query)
+            .map(mapper::toDomain)
+    }
+
+    private fun List<CharacterEntity>.filterBy(query: String?): List<CharacterEntity> =
+        if (query.isNullOrBlank()) this
+        else filter {
+            it.characterName.contains(query, ignoreCase = true) ||
+                it.actorName.contains(query, ignoreCase = true)
+        }
+}

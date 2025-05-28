@@ -5,11 +5,18 @@ import exomind.online.jpmpottertask.domain.Character
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 
 class CharacterMapperTest {
 
-    private val mapper = CharacterMapper()
+    private val characterDateFormatter: CharacterDateFormatter = mockk()
+    private val mapper = CharacterMapper(characterDateFormatter)
+
+    @Before
+    fun setup() {
+        every { characterDateFormatter.format(any()) } returns "12 Dec 2012"
+    }
 
     @Test
     fun `maps dto to entity correctly`() {
@@ -19,12 +26,20 @@ class CharacterMapperTest {
         every { dto.image }.returns("herm_url")
         every { dto.actor }.returns("Emma Watson")
         every { dto.species }.returns("Human")
+        every { dto.id }.returns("id")
+        every { dto.house }.returns("house")
+        every { dto.dateOfBirth }.returns("12-12-2012")
+        every { dto.alive }.returns(true)
 
         val expectedEntity = CharacterEntity(
             characterName = "Hermione Granger",
             imageUrl = "herm_url",
             actorName = "Emma Watson",
-            species = "Human"
+            species = "Human",
+            id = "id",
+            house = "house",
+            dateOfBirth = "12-12-2012",
+            alive = true,
         )
 
         // WHEN
@@ -41,13 +56,21 @@ class CharacterMapperTest {
             characterName = "Harry Potter",
             imageUrl = "harry_url",
             actorName = "Daniel Radcliffe",
-            species = "Wizard"
+            species = "Wizard",
+            id = "id",
+            house = "house",
+            dateOfBirth = "12-12-2012",
+            alive = true,
         )
         val expectedDomain = Character(
             characterName = "Harry Potter",
             actorName = "Daniel Radcliffe",
             imageUrl = "harry_url",
-            species = "Wizard"
+            species = "Wizard",
+            id = "id",
+            house = "house",
+            dateOfBirth = "12 Dec 2012",
+            alive = true,
         )
 
         // WHEN

@@ -21,8 +21,26 @@ class CharactersRepositoryImplTest {
 
     private val dto1 = mockk<CharacterDto>()
     private val dto2 = mockk<CharacterDto>()
-    val entity1 = CharacterEntity(1, "Harry Potter", "Daniel Radcliffe", "", "")
-    val entity2 = CharacterEntity(2, "Hermione Granger", "Emma Watson", "", "")
+    val entity1 = CharacterEntity(
+        id = "1",
+        characterName = "Harry Potter",
+        actorName = "Daniel Radcliffe",
+        imageUrl = "",
+        species = "",
+        house = "house",
+        dateOfBirth = "12-12-2012",
+        alive = true,
+    )
+    val entity2 = CharacterEntity(
+        id = "2",
+        characterName = "Hermione Granger",
+        actorName = "Emma Watson",
+        imageUrl = "",
+        species = "",
+        house = "house",
+        dateOfBirth = "12-12-2012",
+        alive = true,
+    )
     private val domain1: Character = mockk(relaxed = true)
     private val domain2: Character = mockk(relaxed = true)
 

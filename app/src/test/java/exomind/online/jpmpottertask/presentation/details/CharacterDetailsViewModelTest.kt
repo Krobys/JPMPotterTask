@@ -3,7 +3,9 @@ package exomind.online.jpmpottertask.presentation.details
 
 import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.details.GetCharacterUseCase
-import exomind.online.jpmpottertask.presentation.details.CharacterDetailsViewModel.State
+import exomind.online.jpmpottertask.presentation.details.model.Effect
+import exomind.online.jpmpottertask.presentation.details.model.Event
+import exomind.online.jpmpottertask.presentation.details.model.UIState
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -45,7 +47,7 @@ class CharacterDetailsViewModelTest {
     @Test
     fun `initial state is Loading`() = runTest {
         val state = viewModel.character.first()
-        assertTrue(state is State.Loading)
+        assertTrue(state is UIState.Loading)
     }
 
     @Test
@@ -60,7 +62,7 @@ class CharacterDetailsViewModelTest {
         advanceUntilIdle()
 
         // THEN
-        val state = viewModel.character.first() as? State.Success
+        val state = viewModel.character.first() as? UIState.Success
         assertEquals(character, state?.character)
         coVerify { getCharacterUseCase(id) }
     }
@@ -76,20 +78,20 @@ class CharacterDetailsViewModelTest {
         advanceUntilIdle()
 
         // THEN
-        val state = viewModel.character.first() as? State.Error
+        val state = viewModel.character.first() as? UIState.Error
         assertEquals("error", state?.message)
     }
 
     @Test
     fun `onEvent NavigateBack emits NavigateBack effect`() = runTest {
         // WHEN
-        var received: CharacterDetailsViewModel.Effect? = null
+        var received: Effect? = null
         val job = launch { viewModel.effects.collect { received = it } }
-        viewModel.onEvent(CharacterDetailsViewModel.Event.NavigateBack)
+        viewModel.onEvent(Event.NavigateBack)
         advanceUntilIdle()
 
         // THEN
-        assertTrue(received is CharacterDetailsViewModel.Effect.NavigateBack)
+        assertTrue(received is Effect.NavigateBack)
         job.cancel()
     }
 }

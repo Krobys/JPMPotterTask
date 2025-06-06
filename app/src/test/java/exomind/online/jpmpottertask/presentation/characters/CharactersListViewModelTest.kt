@@ -3,7 +3,9 @@ package exomind.online.jpmpottertask.presentation.characters
 import androidx.lifecycle.SavedStateHandle
 import exomind.online.jpmpottertask.domain.models.Character
 import exomind.online.jpmpottertask.domain.characters.GetCharactersUseCase
-import exomind.online.jpmpottertask.presentation.characters.CharactersListViewModel.UIState
+import exomind.online.jpmpottertask.presentation.characters.model.Effect
+import exomind.online.jpmpottertask.presentation.characters.model.Event
+import exomind.online.jpmpottertask.presentation.characters.model.UIState
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -82,7 +84,7 @@ class CharactersListViewModelTest {
         // WHEN
         viewModel = CharactersListViewModel(getCharactersUseCase, savedStateHandle)
         advanceUntilIdle()
-        viewModel.onEvent(CharactersListViewModel.Event.RetryCharacters)
+        viewModel.onEvent(Event.RetryCharacters)
         advanceUntilIdle()
 
         // THEN
@@ -98,7 +100,7 @@ class CharactersListViewModelTest {
         // WHEN
         viewModel = CharactersListViewModel(getCharactersUseCase, savedStateHandle)
         advanceUntilIdle()
-        viewModel.onEvent(CharactersListViewModel.Event.QueryCharacters(query))
+        viewModel.onEvent(Event.QueryCharacters(query))
         advanceUntilIdle()
 
         // THEN
@@ -113,14 +115,14 @@ class CharactersListViewModelTest {
         viewModel = CharactersListViewModel(getCharactersUseCase, savedStateHandle)
 
         // WHEN
-        var received: CharactersListViewModel.Effect? = null
+        var received: Effect? = null
         val job = launch { viewModel.effects.collect { received = it } }
-        viewModel.onEvent(CharactersListViewModel.Event.NavigateCharacterDetails(character))
+        viewModel.onEvent(Event.NavigateCharacterDetails(character))
         advanceUntilIdle()
 
         // THEN
-        assertTrue(received is CharactersListViewModel.Effect.NavigateToCharacterDetails)
-        assertEquals(character, (received as CharactersListViewModel.Effect.NavigateToCharacterDetails).character)
+        assertTrue(received is Effect.NavigateToCharacterDetails)
+        assertEquals(character, (received as Effect.NavigateToCharacterDetails).character)
         job.cancel()
     }
 }

@@ -1,5 +1,7 @@
 package exomind.online.jpmpottertask.data.characters
 
+import exomind.online.jpmpottertask.data.characters.local.CharacterEntity
+import exomind.online.jpmpottertask.data.characters.local.CharactersDao
 import exomind.online.jpmpottertask.data.characters.mappers.CharacterMapper
 import exomind.online.jpmpottertask.data.characters.network.CharacterDto
 import exomind.online.jpmpottertask.data.characters.network.CharactersApi
